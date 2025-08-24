@@ -1,0 +1,47 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    padding: 20px;
+    margin: 0; /* Added to ensure no default body margin interferes */
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+h1 {
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 30px;
+}
+.back-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease; /* Added for smoother hover */
+}
+.back-link:hover {
+    background: #45a049;
+}
+.chart-container {
+    margin-bottom: 40px;
+}
+.chart-container h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center; /* Centered chart titles */
+    margin-bottom: 15px; /* Added space below chart titles */
+}
+/* Ensure canvas elements are responsive within their containers */
+canvas {
+    max-width: 100%;
+    height: auto !important; /* Override Chart.js inline height if necessary for responsiveness */
+}

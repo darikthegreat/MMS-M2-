@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ManageMyStudy - Assignment Scheduler</title>
+  <script src="https://unpkg.com/@tailwindcss/browser@latest"></script>
+  </head>
+<body class="bg-gray-100 p-6 rounded-lg">
+  <div class="container max-w-2xl mx-auto bg-white shadow-md rounded-lg p-8">
+    <h1 class="text-3xl font-semibold text-blue-600 text-center mb-6">Assignment Scheduler</h1>
+
+    <div id="eventForm" class="mb-6 rounded-lg">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Add New Assignment</h2>
+      <form>
+        <div class="mb-4">
+          <label for="assignmentName" class="block text-gray-700 text-sm font-bold mb-2">Assignment Name:</label>
+          <input type="text" id="assignmentName" placeholder="Enter assignment name..." class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <div id="assignmentNameError" class="text-red-500 text-xs italic" style="display: none;">Please enter assignment name</div>
+        </div>
+        <div class="mb-4">
+          <label for="assignmentDate" class="block text-gray-700 text-sm font-bold mb-2">Due Date:</label>
+          <input type="date" id="assignmentDate" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <div id="assignmentDateError" class="text-red-500 text-xs italic" style="display: none;">Please select due date</div>
+        </div>
+        <div class="mb-4">
+          <label for="assignmentDescription" class="block text-gray-700 text-sm font-bold mb-2">Description:</label>
+          <textarea id="assignmentDescription" placeholder="Enter assignment description..." class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32 resize-y"></textarea>
+          <div id="assignmentDescriptionError" class="text-red-500 text-xs italic" style="display: none;">Please enter assignment description</div>
+        </div>
+        <button id="addAssignmentBtn" type="button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add Assignment</button>
+      </form>
+    </div>
+
+    <div id="assignmentListSection" class="rounded-lg">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Upcoming Assignments</h2>
+      <p id="noAssignments" class="text-gray-500 text-center py-4" style="display: none;">No upcoming assignments.</p>
+      <ul id="assignmentList"></ul>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <button id="backBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Back to Home</button>
+  </div>
+
+  <script src="Assignment scheduler.js" defer></script>
+</body>
+</html>

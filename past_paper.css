@@ -1,0 +1,392 @@
+/* Inherit base styles or redefine */
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  transition: opacity 0.5s ease, background 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.dark-mode {
+  background: #222;
+  color: #ddd;
+}
+
+.fade-out { opacity: 0; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px; /* Adjusted padding */
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  transition: background 0.3s ease;
+}
+body.dark-mode header {
+  background: #333;
+  border-bottom: 1px solid #444;
+}
+
+/* New: Header left items wrapper */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* New: Return Home Button Style */
+.return-home-btn {
+    font-size: 1em; /* Match logo font-size better */
+    font-weight: normal;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: #333; /* Default color */
+}
+.return-home-btn:hover {
+    background-color: #f0f0f0;
+    color: #0288d1;
+}
+body.dark-mode .return-home-btn {
+    color: #ddd; /* Dark mode text color */
+}
+body.dark-mode .return-home-btn:hover {
+    background-color: #4a4a4a;
+    color: #4fc3f7;
+}
+
+
+.logo { font-size: 24px; font-weight: bold; cursor: pointer; }
+.icons { display: flex; gap: 15px; align-items: center; }
+.icons span { cursor: pointer; font-size: 18px; transition: transform 0.2s ease; }
+.icons span:hover { transform: scale(1.1); }
+
+.past-paper-main {
+  flex-grow: 1;
+  padding: 20px;
+  max-width: 900px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, max-width 0.4s ease; /* Added max-width transition */
+}
+body.dark-mode .past-paper-main {
+  background: #3a3a3a;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* New: Style for wider PDF view */
+.past-paper-main.pdf-focused {
+    max-width: 95vw; /* Makes the main container wider */
+}
+
+section h2 {
+  text-align: center;
+  color: #0288d1;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+body.dark-mode section h2 { color: #4fc3f7; }
+
+.sub-heading {
+    text-align: center;
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 0.95em;
+}
+body.dark-mode .sub-heading { color: #bbb; }
+
+#file-upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#browse-file-btn {
+    min-width: 200px;
+}
+
+#drag-drop-zone {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    color: #777;
+    width: 80%;
+    max-width: 500px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+#drag-drop-zone.dragover {
+    background-color: #e9f5fe;
+    border-color: #0288d1;
+}
+body.dark-mode #drag-drop-zone {
+    border-color: #666;
+    color: #aaa;
+}
+body.dark-mode #drag-drop-zone.dragover {
+    background-color: #37474f;
+    border-color: #4fc3f7;
+}
+
+#pdf-display-section {
+    margin-bottom: 30px;
+}
+
+/* New: PDF Header Controls */
+.pdf-header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 15px; /* Add gap between title and button */
+}
+
+#loaded-paper-name {
+    text-align: left; /* Align to left as button is on right */
+    color: #333;
+    margin-bottom: 0; /* Removed margin for flex alignment */
+    font-size: 1.2em;
+    font-weight: 600;
+    flex-grow: 1; /* Allows title to take available space */
+    overflow: hidden; /* Prevent long names from breaking layout */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+body.dark-mode #loaded-paper-name { color: #eee; }
+
+#pdf-viewer-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+body.dark-mode #pdf-viewer-wrapper { border-color: #555; }
+
+#pdf-viewer {
+    width: 100%;
+    height: 75vh; /* Default height, can be adjusted */
+    border: none;
+}
+
+select, input[type="text"], textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1em;
+}
+body.dark-mode select, body.dark-mode input[type="text"], body.dark-mode textarea {
+  background: #555;
+  color: #ddd;
+  border-color: #666;
+}
+select:focus, input[type="text"]:focus, textarea:focus {
+    border-color: #0288d1;
+    box-shadow: 0 0 0 2px rgba(2, 136, 209, 0.2);
+    outline: none;
+}
+select:disabled, input[type="text"]:disabled, textarea:disabled {
+    background-color: #e9e9e9;
+    cursor: not-allowed;
+}
+body.dark-mode select:disabled, body.dark-mode input[type="text"]:disabled, body.dark-mode textarea:disabled {
+    background-color: #4f4f4f;
+}
+
+.styled-button {
+  padding: 12px 25px;
+  border: none;
+  background: #0288d1;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-size: 1em;
+  font-weight: 500;
+}
+.styled-button:hover:not(:disabled) {
+  background: #0277bd;
+  transform: translateY(-2px);
+}
+.styled-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+body.dark-mode .styled-button:disabled {
+    background: #555;
+    color: #888;
+}
+
+.styled-button.small-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    margin: 0; /* Removed default margin for flex control */
+}
+.styled-button.start-button { background-color: #4CAF50; }
+.styled-button.start-button:hover:not(:disabled) { background-color: #45a049; }
+.styled-button.pause-button { background-color: #fb8c00; }
+.styled-button.pause-button:hover:not(:disabled) { background-color: #f57c00; }
+.styled-button.reset-button { background-color: #757575; }
+.styled-button.reset-button:hover:not(:disabled) { background-color: #616161; }
+.styled-button.finish-button { background-color: #d32f2f; }
+.styled-button.finish-button:hover:not(:disabled) { background-color: #c62828; }
+
+#workout-companion-section {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 30px;
+    background: #f9f9f9;
+}
+body.dark-mode #workout-companion-section {
+    background: #444;
+    border-color: #555;
+}
+
+.workout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+body.dark-mode .workout-header { border-bottom-color: #555; }
+
+#current-paper-info { font-size: 1.2em; margin:0; flex-grow: 1; }
+body.dark-mode #current-paper-info { color: #eee; }
+
+#timer-container {
+  font-size: 2em;
+  font-weight: bold;
+  color: #0288d1;
+  background-color: #e1f5fe;
+  padding: 10px 20px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+body.dark-mode #timer-container {
+  color: #81d4fa;
+  background-color: #37474f;
+}
+
+#companion-controls {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex; /* For better button alignment */
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+#companion-controls p {
+    margin-bottom: 15px;
+    font-size: 1em;
+    width: 100%; /* Make paragraph take full width */
+}
+
+#notes-area {
+  width: calc(100% - 24px);
+  min-height: 150px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+
+.timer-actions {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#finish-session-btn {
+    display: block;
+    margin: 20px auto 0 auto;
+}
+
+footer {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  margin-top: auto;
+  transition: background 0.3s ease;
+}
+body.dark-mode footer {
+  background: #333;
+  border-top: 1px solid #444;
+}
+
+@media (max-width: 768px) {
+    .past-paper-main {
+      max-width: 100%;
+      padding: 10px;
+      margin: 10px auto;
+    }
+    /* Ensure wider view doesn't break mobile */
+    .past-paper-main.pdf-focused {
+        max-width: 100%; /* On mobile, 95vw might be too much with padding */
+    }
+    .header-left {
+        gap: 10px; /* Reduce gap on smaller screens */
+    }
+    .return-home-btn {
+        font-size: 0.9em;
+        padding: 6px 8px;
+    }
+    .logo {
+        font-size: 20px;
+    }
+    .pdf-header-controls {
+        flex-direction: column; /* Stack title and button on small screens */
+        align-items: flex-start; /* Align items to the start */
+        gap: 8px;
+    }
+    #loaded-paper-name {
+        text-align: center; /* Center title when stacked */
+        width: 100%;
+    }
+    #toggle-pdf-size-btn {
+        align-self: center; /* Center button when stacked */
+    }
+
+    .workout-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    #current-paper-info {
+        font-size: 1.1em;
+    }
+    #timer-container {
+        font-size: 1.8em;
+        padding: 8px 15px;
+    }
+    #drag-drop-zone {
+        padding: 20px;
+        width: 90%;
+    }
+    #pdf-viewer {
+      height: 60vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .icons { display: none; } /* Hide theme/logout on very small screens for space */
+}

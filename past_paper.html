@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Past Paper Hub - ManageMyStudy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="past_paper.css">
+  </head>
+<body>
+  <header>
+    <div class="header-left"> <span class="return-home-btn" onclick="navigateToHome()" title="Back to Home">❮ Home</span>
+        <div class="logo" onclick="navigateToHome()">ManageMyStudy</div>
+    </div>
+    <div class="icons">
+      <span class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</span>
+      <span class="logout-icon" onclick="logout()">🚪</span>
+    </div>
+  </header>
+
+  <main class="past-paper-main">
+    <section id="paper-selection-section">
+      <h2>Load Your Past Paper</h2>
+      <p class="sub-heading">Select or drag and drop a PDF file to begin your workout.</p>
+      <div id="file-upload-area">
+        <input type="file" id="pdf-file-input" accept="application/pdf" style="display: none;">
+        <button id="browse-file-btn" class="styled-button">Browse for PDF</button>
+        <p style="text-align: center; margin: 10px 0;">Or</p>
+        <div id="drag-drop-zone">
+            Drag and drop PDF here
+        </div>
+      </div>
+    </section>
+
+    <section id="pdf-display-section" style="display: none;">
+      <div class="pdf-header-controls">
+        <h3 id="loaded-paper-name"></h3>
+        <button id="toggle-pdf-size-btn" class="styled-button small-button">Wider View</button>
+      </div>
+      <div id="pdf-viewer-wrapper">
+        <iframe id="pdf-viewer"></iframe>
+      </div>
+    </section>
+
+    <section id="workout-companion-section" style="display: none;">
+      <div class="workout-header">
+        <h2 id="current-paper-info">Workout Companion</h2>
+        <div id="timer-container">
+          <span id="timer-display">00:00:00</span>
+        </div>
+      </div>
+      <div id="companion-controls">
+          <p>Your paper is displayed above. Use the timer and notes below.</p>
+          <button id="find-mark-scheme-btn" class="styled-button small-button">Search Mark Scheme Online</button>
+          <button id="set-custom-timer-btn" class="styled-button small-button">Set Custom Timer</button>
+      </div>
+      <textarea id="notes-area" placeholder="Use this space for notes, calculations, or tracking your answers..."></textarea>
+      <div class="timer-actions">
+        <button id="start-timer-btn" class="styled-button start-button">Start Timer</button>
+        <button id="pause-timer-btn" class="styled-button pause-button" style="display: none;">Pause Timer</button>
+        <button id="reset-timer-btn" class="styled-button reset-button" style="display: none;">Reset Timer</button>
+      </div>
+      <button id="finish-session-btn" class="styled-button finish-button">Finish Workout Session</button>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ManageMyStudy. All rights reserved.</p>
+  </footer>
+
+  <script src="past_paper.js"></script>
+</body>
+</html>

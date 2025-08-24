@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ManageMyStudy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  
+  <header>
+    <div class="logo">ManageMyStudy</div>
+    <div class="icons">
+      <span class="dark-mode-toggle">🌙</span>
+      <span class="progress-icon">📊</span>
+      <span class="notifications-icon">🔔</span>
+      <span class="settings-icon">⚙️</span>
+      <span class="logout-icon">🚪</span>
+    </div>
+  </header>
+  
+  <div class="main">
+    <div class="pomodoro">
+      <h2>POMODORO</h2>
+      <h1 id="timer">25:00</h1>
+      <div class="controls">
+        <button id="startTimerBtn">Start</button>
+        <button id="pauseTimerBtn">Pause</button>
+        <button id="resetTimerBtn">Reset</button>
+      </div>
+    </div>
+    <div class="tasks" id="navigateToTasksContainer">
+      <h3>Tasks</h3>
+      <ul id="tasksDisplay"></ul>
+      <p class="item-summary">
+        <span id="homeTasksCount"></span> <a href="tasks.html" class="view-all-link">View all tasks</a>
+      </p>
+    </div>
+    <div class="inspiration">
+      <h3>Daily Inspiration <span>💡</span></h3>
+      <p id="homePageQuote">"The secret of getting ahead is getting started."</p>
+    </div>
+    <div class="schedule-designer" id="navigateToScheduleBtn">
+      <h3>Study Schedule Designer <span>🗓️✏️</span></h3>
+      <div class="schedule-header">
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+        <div>Sun</div>
+      </div>
+      <div class="schedule-grid" id="homeScheduleGrid">
+        <div class="day-column" data-day="Monday"></div>
+        <div class="day-column" data-day="Tuesday"></div>
+        <div class="day-column" data-day="Wednesday"></div>
+        <div class="day-column" data-day="Thursday"></div>
+        <div class="day-column" data-day="Friday"></div>
+        <div class="day-column" data-day="Saturday"></div>
+        <div class="day-column" data-day="Sunday"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-section">
+    <div class="overview" id="showOverviewBtn">
+      <h3>☀️ Today's Overview</h3>
+      <p>Weather / Daily objectives </p>
+    </div>
+    <div class="Assignment" id="navigateToAssignmentSchedulerContainer">
+      <h3>📅 Assignment Scheduler</h3>
+      <ul id="assignmentList" style="list-style: none; padding-left: 0;"></ul>
+      <p class="item-summary">
+        <span id="homeAssignmentsCount"></span> <a href="Assignment scheduler.html" class="view-all-link">View all assignments</a>
+      </p>
+    </div>
+    <div class="progress" id="navigateToProgress">
+      <h3>📊 Progress</h3>
+      <p>Click to view detailed progress</p>
+    </div>
+    <div class="past-paper-workout" id="navigateToPastPaperBtn">
+      <h3>📚 Past Paper Workout</h3>
+      <p>Practice with past papers to ace your exams!</p>
+    </div>
+  </div>
+
+  <div id="overview-details" style="display: none;">
+    <div class="overview-content">
+      <h1>Daily Overview</h1>
+      <div>
+        <div class="weather">
+          <h2>☀️ Weather</h2>
+          <p id="current-date"></p>
+          <p id="weatherDescription" class="large">Loading weather...</p>
+        </div>
+        <div class="inspiration">
+          <h2>💡 Daily Inspiration</h2>
+          <p id="dailyQuote">Loading quote...</p>
+        </div>
+        <div class="tasks">
+          <h2>📋 Today's Tasks</h2>
+          <ul id="todayTasksList"></ul>
+        </div>
+        <div class="Assignment">
+          <h2>📅 Today's Assignments</h2>
+          <ul id="todayAssignmentList"></ul>
+        </div>
+      </div>
+      <button id="hideOverviewBtn">Close</button>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 ManageMyStudy. All rights reserved.</p>
+  </footer>
+
+  <div id="widget-overlay" style="display: none;"></div>
+
+  <div id="progress-widget" class="widget">
+    <span class="close-btn" data-widget-id="progress-widget">X</span>
+    <h2>Progress</h2>
+    <p>Tasks completed today: <span id="tasks-completed">0</span></p>
+    <button class="close-widget-btn" data-widget-id="progress-widget">Close</button>
+  </div>
+
+  <div id="notifications-widget" class="widget">
+    <span class="close-btn" data-widget-id="notifications-widget">X</span>
+    <h2>Notifications</h2>
+    <ul id="notifications-list"></ul>
+    <button class="close-widget-btn" data-widget-id="notifications-widget">Close</button>
+  </div>
+
+  <div id="settings-widget" class="widget">
+    <span class="close-btn" data-widget-id="settings-widget">X</span>
+    <h2>Settings</h2>
+
+    <div class="settings-section">
+      <h3>General</h3>
+      <label for="theme-select">Theme:</label>
+      <select id="theme-select">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+
+    <div class="settings-section">
+      <h3>Pomodoro</h3>
+      <label for="work-time">Work Time (minutes):</label>
+      <input type="number" id="work-time" value="25" min="1">
+      <label for="break-time">Break Time (minutes):</label>
+      <input type="number" id="break-time" value="5" min="1">
+      <div>
+        <input type="checkbox" id="pomodoro-alert-enable">
+        <label for="pomodoro-alert-enable" class="checkbox-label">Enable end-of-session alerts</label>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h3>Today's Overview</h3>
+      <label for="weather-location">Weather Location (City):</label>
+      <input type="text" id="weather-location" placeholder="e.g., Addis Ababa, London">
+    </div>
+    
+    <div class="settings-section">
+      <h3>Home Page Display</h3>
+      <label for="home-task-display">Tasks on Home:</label>
+      <select id="home-task-display">
+        <option value="all">Show all tasks</option>
+        <option value="pending">Show pending tasks only</option>
+      </select>
+    </div>
+
+    <button id="saveSettingsBtn">Save Settings</button>
+    <button class="close-widget-btn" data-widget-id="settings-widget">Close</button>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

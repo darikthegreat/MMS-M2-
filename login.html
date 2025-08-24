@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - ManageMyStudy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login to ManageMyStudy</h1>
+        <form id="loginForm">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="loginEmail" placeholder="Email or Username" required>
+            </div>
+            <div class="input-group space">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <span class="show-password" onclick="togglePassword('loginPassword')">SHOW</span>
+            </div>
+            <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit">Login</button>
+            <div id="loginError" class="error"></div>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign up Now</a></p>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

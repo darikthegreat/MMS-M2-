@@ -1,0 +1,591 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  transition: opacity 0.5s ease, background 0.3s ease, color 0.3s ease;
+}
+body.dark-mode {
+  background: #222;
+  color: #ddd;
+}
+.fade-out {
+  opacity: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  transition: background 0.3s ease;
+}
+body.dark-mode header {
+  background: #333;
+  border-bottom: 1px solid #444;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+.icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.icons span {
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+.icons span:hover {
+  transform: scale(1.1);
+}
+.main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px; /* Slightly increased gap */
+  padding: 20px;
+}
+.pomodoro {
+  grid-column: 1 / -1;
+  text-align: center;
+  background: #fff;
+  padding: 30px 40px 40px 40px; /* Adjusted padding */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+body.dark-mode .pomodoro {
+  background: #444;
+}
+.pomodoro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.pomodoro h2 {
+  margin-bottom: 15px; /* Added margin */
+}
+.pomodoro h1 {
+  font-size: 52px; /* Slightly larger */
+  margin: 0 0 15px 0; /* Adjusted margin */
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+body.dark-mode .pomodoro h1 {
+    color: #f0f0f0; /* Brighter for dark mode */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+.pomodoro .controls button {
+  margin: 10px 5px 0 5px; /* Adjusted margin */
+  padding: 10px 20px;
+  border: none;
+  background: #4CAF50;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.pomodoro .controls button:hover {
+    background-color: #45a049;
+}
+
+.tasks, .schedule-designer {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tasks:hover, .schedule-designer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+body.dark-mode .tasks, 
+body.dark-mode .schedule-designer {
+  background: #444;
+}
+.tasks h3, .schedule-designer h3 {
+  margin-top: 0;
+  margin-bottom: 15px; /* Added margin */
+}
+.tasks ul {
+  list-style: none;
+  padding: 0;
+  max-height: 150px; /* Limit height */
+  overflow-y: auto; /* Add scroll if many tasks */
+}
+.tasks li {
+  margin-bottom: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9em; /* Slightly smaller for list items */
+}
+body.dark-mode .tasks li {
+    border-bottom-color: #4f4f4f;
+}
+
+.inspiration {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.inspiration:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+body.dark-mode .inspiration {
+  background: #444;
+}
+.inspiration h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #4CAF50;
+  margin-bottom: 15px; /* Added margin */
+}
+body.dark-mode .inspiration h3 {
+    color: #81c784; /* Lighter green for dark mode */
+}
+.inspiration p { /* The quote itself */
+  font-size: 1.05em; /* Slightly larger */
+  font-style: italic;
+  margin: 10px 0 0;
+  color: #555;
+}
+body.dark-mode .inspiration p {
+    color: #bbb;
+}
+
+.schedule-designer h3 {
+  font-size: 18px;
+  color: #2196F3;
+}
+body.dark-mode .schedule-designer h3 {
+    color: #64b5f6; /* Lighter blue for dark mode */
+}
+.schedule-designer .schedule-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+}
+.schedule-designer .schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+.schedule-designer .day-column {
+  background: #f0f0f0;
+  border-radius: 5px;
+  padding: 5px;
+  min-height: 100px;
+  overflow-y: auto;
+}
+.schedule-designer .task-card {
+  background: #ddd;
+  border-radius: 3px;
+  padding: 3px;
+  margin-bottom: 3px;
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+body.dark-mode .schedule-designer .day-column {
+  background: #3a3a3a; /* Darker column bg */
+}
+body.dark-mode .schedule-designer .task-card {
+  background: #555; /* Darker card bg */
+  color: #ddd;
+}
+
+.bottom-section {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.bottom-section > div {
+  flex: 1 1 200px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+body.dark-mode .bottom-section > div {
+  background: #444;
+}
+.bottom-section > div:hover { /* Applied to all bottom cards */
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+body.dark-mode .bottom-section > div:hover {
+  background: #555;
+}
+.bottom-section h3 {
+  margin-top: 0;
+  font-size: 18px;
+  margin-bottom: 10px; /* Added margin */
+}
+.bottom-section p {
+    font-size: 0.9em; /* Standardize paragraph text */
+    color: #666;
+}
+body.dark-mode .bottom-section p {
+    color: #ccc;
+}
+.past-paper-workout h3 {
+  color: #0ea5e9;
+}
+body.dark-mode .past-paper-workout h3 {
+  color: #38bdf8; /* Lighter for dark mode */
+}
+
+/* Item Summary on Home Cards */
+.item-summary {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 15px; /* More space */
+    text-align: right;
+}
+body.dark-mode .item-summary {
+    color: #bbb;
+}
+.view-all-link {
+    color: #0288d1;
+    text-decoration: none;
+    font-weight: 500;
+}
+.view-all-link:hover {
+    text-decoration: underline;
+}
+body.dark-mode .view-all-link {
+    color: #4fc3f7;
+}
+#assignmentList { /* For home page assignment list */
+    max-height: 100px; /* Limit height */
+    overflow-y: auto; /* Add scroll */
+}
+#assignmentList li {
+    font-size: 0.9em;
+}
+
+
+/* Overview Modal */
+#overview-details {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  backdrop-filter: blur(3px); /* Added blur effect */
+}
+#overview-details.show {
+  opacity: 1;
+}
+.overview-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25); /* Enhanced shadow */
+  transition: background 0.3s ease;
+}
+body.dark-mode .overview-content {
+  background: #333;
+  color: #ddd;
+}
+.overview-content h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.overview-content .weather, 
+.overview-content .inspiration, 
+.overview-content .tasks, 
+.overview-content .Assignment {
+  background: #f9f9f9; /* Lighter bg for cards inside overview */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Softer shadow */
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+body.dark-mode .overview-content .weather,
+body.dark-mode .overview-content .inspiration,
+body.dark-mode .overview-content .tasks,
+body.dark-mode .overview-content .Assignment {
+  background: #3a3a3a; /* Darker card bg */
+}
+.overview-content .weather:hover, 
+.overview-content .inspiration:hover, 
+.overview-content .tasks:hover, 
+.overview-content .Assignment:hover {
+  transform: translateY(-3px); /* Slightly more lift */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.overview-content .weather p.large {
+  font-size: 24px;
+  text-align: center;
+}
+.overview-content .inspiration p { /* Quote in overview */
+  font-size: 18px;
+  text-align: center;
+  color: #555;
+  font-style: italic; /* Italicize quote */
+}
+body.dark-mode .overview-content .inspiration p {
+  color: #bbb;
+}
+.overview-content .tasks ul, 
+.overview-content .Assignment ul {
+  list-style: none;
+  padding: 0;
+}
+.overview-content .tasks li, 
+.overview-content .Assignment li {
+  margin-bottom: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+body.dark-mode .overview-content .tasks li, 
+body.dark-mode .overview-content .Assignment li {
+    border-bottom-color: #4f4f4f;
+}
+#current-date {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 10px;
+}
+body.dark-mode #current-date {
+    color: #ccc;
+}
+.overview-content button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  border: none;
+  background: #4CAF50;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.overview-content button:hover {
+  background: #45a049;
+}
+footer {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+body.dark-mode footer {
+  background: #333;
+  border-top: 1px solid #444;
+}
+
+/* Widget Styles */
+.widget {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 25px; /* Increased padding */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25); /* Enhanced shadow */
+  z-index: 1000;
+  display: none; /* Initially hidden */
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Added transform transition */
+  min-width: 300px; /* Minimum width */
+  max-width: 450px; /* Maximum width */
+}
+.widget.show {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1); /* End state for scale */
+}
+.widget:not(.show) { /* Start state for scale */
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px; /* Larger close icon */
+  color: #888;
+}
+.close-btn:hover {
+    color: #333;
+}
+body.dark-mode .close-btn {
+    color: #aaa;
+}
+body.dark-mode .close-btn:hover {
+    color: #fff;
+}
+
+#widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px); /* Added blur effect */
+  z-index: 999;
+  display: none;
+}
+body.dark-mode .widget {
+  background: #3a3a3a; /* Darker widget bg */
+  color: #ddd;
+}
+
+/* Settings Widget Specific Styles */
+#settings-widget h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#settings-widget h3 {
+  margin-top: 20px; /* More space for section titles */
+  margin-bottom: 10px;
+  font-size: 1em; /* Slightly smaller */
+  color: #0288d1; 
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 6px;
+  font-weight: 600; /* Bolder titles */
+}
+body.dark-mode #settings-widget h3 {
+  color: #4fc3f7;
+  border-bottom-color: #555;
+}
+.settings-section {
+  margin-bottom: 25px;
+}
+#settings-widget label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9em;
+  font-weight: 500; /* Slightly bolder labels */
+}
+#settings-widget input[type="number"],
+#settings-widget input[type="text"],
+#settings-widget select {
+  width: calc(100% - 22px); /* Full width minus padding */
+  padding: 10px; /* Increased padding */
+  margin-bottom: 12px; /* More space below inputs */
+  border-radius: 5px; /* Slightly more rounded */
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  font-size: 0.9em;
+}
+body.dark-mode #settings-widget input[type="number"],
+body.dark-mode #settings-widget input[type="text"],
+body.dark-mode #settings-widget select {
+  background-color: #555;
+  color: #ddd;
+  border-color: #666;
+}
+#settings-widget input[type="checkbox"] {
+  margin-right: 8px; /* More space for checkbox */
+  vertical-align: middle;
+  width: auto; /* Override width calc */
+  margin-bottom: 0; /* Align with label */
+}
+#settings-widget label.checkbox-label { 
+    display: inline; /* Align label with checkbox */
+    font-weight: normal; /* Normal weight for checkbox label */
+    font-size: 0.9em;
+}
+#settings-widget #saveSettingsBtn,
+#settings-widget .close-widget-btn {
+    padding: 10px 18px; /* Standardized padding */
+    font-size: 0.95em;
+}
+#settings-widget #saveSettingsBtn {
+    margin-right: 10px;
+    background-color: #4CAF50; /* Explicit save color */
+}
+#settings-widget #saveSettingsBtn:hover {
+    background-color: #45a049;
+}
+#settings-widget .close-widget-btn {
+    background-color: #757575; /* Grey for close */
+}
+#settings-widget .close-widget-btn:hover {
+    background-color: #616161;
+}
+
+
+#tasks-completed {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4CAF50; /* Highlight color */
+}
+body.dark-mode #tasks-completed {
+    color: #81c784;
+}
+#notifications-list {
+    list-style: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+#notifications-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+}
+body.dark-mode #notifications-list li {
+    border-bottom-color: #4f4f4f;
+}
+#notifications-list li:last-child {
+    border-bottom: none;
+}
+
+
+/* Grid layout for overview content on larger screens */
+@media (min-width: 768px) {
+  .overview-content > div { /* Target the div wrapping weather, inspiration etc. */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  .overview-content .weather, 
+  .overview-content .inspiration, 
+  .overview-content .tasks, 
+  .overview-content .Assignment {
+    margin-bottom: 0; /* Remove bottom margin as gap handles it */
+  }
+}

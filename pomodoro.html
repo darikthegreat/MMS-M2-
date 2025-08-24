@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManageMyStudy - Pomodoro Timer</title>
+    <link rel="stylesheet" href="pomodoro.css">
+</head>
+<body>
+    <a href="index.html" class="home-button">🔙</a>
+    <button id="settingsToggle" class="settings-widget-btn">⚙️</button>
+
+    <div class="container">
+        <div class="animation-layer"></div>
+        <svg width="300" height="300" style="position: relative;">
+            <circle cx="150" cy="150" r="140" stroke="rgba(255,255,255,0.2)" stroke-width="8" fill="none"/>
+            <circle class="progress-ring" cx="150" cy="150" r="140" stroke="white"
+                    stroke-width="8" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="timer">25:00</div>
+
+        <div class="controls">
+            <button id="start-pause">▶ Start</button>
+            <button id="reset">↺ Reset</button>
+        </div>
+
+        <div class="session-info">
+            <p>Session: <span id="session-type">Work</span></p>
+            <p>Next: <span id="next-session">Short Break</span></p>
+        </div>
+    </div>
+
+    <div class="settings-widget" id="settingsWidget">
+        <div class="widget-header">
+            <h2>Settings</h2>
+            <button class="close-widget">×</button>
+        </div>
+
+        <form id="settingsForm" class="widget-content">
+            <div class="form-group">
+                <label>Work Duration (min)</label>
+                <input type="number" id="workTime" min="1" value="25">
+            </div>
+
+            <div class="form-group">
+                <label>Short Break (min)</label>
+                <input type="number" id="shortBreak" min="1" value="5">
+            </div>
+
+            <div class="form-group">
+                <label>Long Break (min)</label>
+                <input type="number" id="longBreak" min="1" value="15">
+            </div>
+
+            <button type="button" id="saveSettings">Save</button>
+        </form>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <script src="pomodoro.js"></script>
+</body>
+</html>
