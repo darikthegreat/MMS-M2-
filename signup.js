@@ -12,30 +12,32 @@ function togglePassword(id) {
     }
 }
 
-document.getElementById('signupForm').addEventListener('submit', function(e) {
+document.getElementById('signupForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const email = document.getElementById('signupEmail').value;
     const username = document.getElementById('signupUsername').value;
     const password = document.getElementById('signupPassword').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     const errorDiv = document.getElementById('signupError');
-    errorDiv.textContent = ''; // Clear previous errors
+    errorDiv.textContent = '';
 
     if (password !== confirmPassword) {
         errorDiv.textContent = 'Passwords do not match.';
         return;
     }
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const existingUser = users.find(user =>
-        user.email === email || user.username === username
-    );
-    if (existingUser) {
-        errorDiv.textContent = 'Email or username already exists.';
+    const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password, username }),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+        alert('Sign up successful! Check your email for verification before logging in.');
+        window.location.href = 'login.html';
     } else {
-        users.push({ email, username, password });
-        localStorage.setItem('users', JSON.stringify(users));
-        alert('Sign up successful! Please login.');
-        window.location.href = 'login.html'; // Redirect to login page
+        errorDiv.textContent = result.error || 'An unknown error occurred.';
     }
 });
