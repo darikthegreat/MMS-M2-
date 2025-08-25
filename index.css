@@ -45,14 +45,14 @@ body.dark-mode header {
 .main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 25px; /* Slightly increased gap */
+  grid-gap: 25px; 
   padding: 20px;
 }
 .pomodoro {
   grid-column: 1 / -1;
   text-align: center;
   background: #fff;
-  padding: 30px 40px 40px 40px; /* Adjusted padding */
+  padding: 30px 40px 40px 40px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: relative;
@@ -67,20 +67,20 @@ body.dark-mode .pomodoro {
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 .pomodoro h2 {
-  margin-bottom: 15px; /* Added margin */
+  margin-bottom: 15px;
 }
 .pomodoro h1 {
-  font-size: 52px; /* Slightly larger */
-  margin: 0 0 15px 0; /* Adjusted margin */
+  font-size: 52px; 
+  margin: 0 0 15px 0; 
   color: #333;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 body.dark-mode .pomodoro h1 {
-    color: #f0f0f0; /* Brighter for dark mode */
+    color: #f0f0f0; 
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 .pomodoro .controls button {
-  margin: 10px 5px 0 5px; /* Adjusted margin */
+  margin: 10px 5px 0 5px; 
   padding: 10px 20px;
   border: none;
   background: #4CAF50;
@@ -111,19 +111,19 @@ body.dark-mode .schedule-designer {
 }
 .tasks h3, .schedule-designer h3 {
   margin-top: 0;
-  margin-bottom: 15px; /* Added margin */
+  margin-bottom: 15px;
 }
 .tasks ul {
   list-style: none;
   padding: 0;
-  max-height: 150px; /* Limit height */
-  overflow-y: auto; /* Add scroll if many tasks */
+  max-height: 150px; 
+  overflow-y: auto; 
 }
 .tasks li {
   margin-bottom: 10px;
   padding: 5px 0;
   border-bottom: 1px solid #eee;
-  font-size: 0.9em; /* Slightly smaller for list items */
+  font-size: 0.9em;
 }
 body.dark-mode .tasks li {
     border-bottom-color: #4f4f4f;
@@ -148,13 +148,13 @@ body.dark-mode .inspiration {
   margin-top: 0;
   font-size: 18px;
   color: #4CAF50;
-  margin-bottom: 15px; /* Added margin */
+  margin-bottom: 15px; 
 }
 body.dark-mode .inspiration h3 {
-    color: #81c784; /* Lighter green for dark mode */
+    color: #81c784; 
 }
-.inspiration p { /* The quote itself */
-  font-size: 1.05em; /* Slightly larger */
+.inspiration p { 
+  font-size: 1.05em; 
   font-style: italic;
   margin: 10px 0 0;
   color: #555;
@@ -168,7 +168,7 @@ body.dark-mode .inspiration p {
   color: #2196F3;
 }
 body.dark-mode .schedule-designer h3 {
-    color: #64b5f6; /* Lighter blue for dark mode */
+    color: #64b5f6; 
 }
 .schedule-designer .schedule-header {
   display: grid;
@@ -202,10 +202,10 @@ body.dark-mode .schedule-designer h3 {
   text-overflow: ellipsis;
 }
 body.dark-mode .schedule-designer .day-column {
-  background: #3a3a3a; /* Darker column bg */
+  background: #3a3a3a; 
 }
 body.dark-mode .schedule-designer .task-card {
-  background: #555; /* Darker card bg */
+  background: #555; 
   color: #ddd;
 }
 
@@ -228,7 +228,7 @@ body.dark-mode .schedule-designer .task-card {
 body.dark-mode .bottom-section > div {
   background: #444;
 }
-.bottom-section > div:hover { /* Applied to all bottom cards */
+.bottom-section > div:hover { 
   background: #f0f0f0;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
@@ -239,10 +239,10 @@ body.dark-mode .bottom-section > div:hover {
 .bottom-section h3 {
   margin-top: 0;
   font-size: 18px;
-  margin-bottom: 10px; /* Added margin */
+  margin-bottom: 10px; 
 }
 .bottom-section p {
-    font-size: 0.9em; /* Standardize paragraph text */
+    font-size: 0.9em; 
     color: #666;
 }
 body.dark-mode .bottom-section p {
@@ -252,14 +252,14 @@ body.dark-mode .bottom-section p {
   color: #0ea5e9;
 }
 body.dark-mode .past-paper-workout h3 {
-  color: #38bdf8; /* Lighter for dark mode */
+  color: #38bdf8;
 }
 
-/* Item Summary on Home Cards */
+
 .item-summary {
     font-size: 0.85em;
     color: #666;
-    margin-top: 15px; /* More space */
+    margin-top: 15px; 
     text-align: right;
 }
 body.dark-mode .item-summary {
@@ -276,16 +276,16 @@ body.dark-mode .item-summary {
 body.dark-mode .view-all-link {
     color: #4fc3f7;
 }
-#assignmentList { /* For home page assignment list */
-    max-height: 100px; /* Limit height */
-    overflow-y: auto; /* Add scroll */
+#assignmentList { 
+    max-height: 100px; 
+    overflow-y: auto; 
 }
 #assignmentList li {
     font-size: 0.9em;
 }
 
 
-/* Overview Modal */
+
 #overview-details {
   position: fixed;
   top: 0;
@@ -299,7 +299,7 @@ body.dark-mode .view-all-link {
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1000;
-  backdrop-filter: blur(3px); /* Added blur effect */
+  backdrop-filter: blur(3px);
 }
 #overview-details.show {
   opacity: 1;
@@ -312,7 +312,7 @@ body.dark-mode .view-all-link {
   max-width: 800px;
   max-height: 80%;
   overflow-y: auto;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25); /* Enhanced shadow */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25); 
   transition: background 0.3s ease;
 }
 body.dark-mode .overview-content {
@@ -327,10 +327,10 @@ body.dark-mode .overview-content {
 .overview-content .inspiration, 
 .overview-content .tasks, 
 .overview-content .Assignment {
-  background: #f9f9f9; /* Lighter bg for cards inside overview */
+  background: #f9f9f9; 
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Softer shadow */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
   margin-bottom: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
@@ -338,24 +338,24 @@ body.dark-mode .overview-content .weather,
 body.dark-mode .overview-content .inspiration,
 body.dark-mode .overview-content .tasks,
 body.dark-mode .overview-content .Assignment {
-  background: #3a3a3a; /* Darker card bg */
+  background: #3a3a3a; 
 }
 .overview-content .weather:hover, 
 .overview-content .inspiration:hover, 
 .overview-content .tasks:hover, 
 .overview-content .Assignment:hover {
-  transform: translateY(-3px); /* Slightly more lift */
+  transform: translateY(-3px); 
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 .overview-content .weather p.large {
   font-size: 24px;
   text-align: center;
 }
-.overview-content .inspiration p { /* Quote in overview */
+.overview-content .inspiration p { 
   font-size: 18px;
   text-align: center;
   color: #555;
-  font-style: italic; /* Italicize quote */
+  font-style: italic; 
 }
 body.dark-mode .overview-content .inspiration p {
   color: #bbb;
@@ -411,29 +411,29 @@ body.dark-mode footer {
   border-top: 1px solid #444;
 }
 
-/* Widget Styles */
+
 .widget {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 25px; /* Increased padding */
+  padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.25); /* Enhanced shadow */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
   z-index: 1000;
-  display: none; /* Initially hidden */
+  display: none;
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Added transform transition */
-  min-width: 300px; /* Minimum width */
-  max-width: 450px; /* Maximum width */
+  transition: opacity 0.3s ease, transform 0.3s ease; 
+  min-width: 300px; 
+  max-width: 450px; 
 }
 .widget.show {
   display: block;
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1); /* End state for scale */
+  transform: translate(-50%, -50%) scale(1); 
 }
-.widget:not(.show) { /* Start state for scale */
+.widget:not(.show) { 
     transform: translate(-50%, -50%) scale(0.95);
 }
 
@@ -442,7 +442,7 @@ body.dark-mode footer {
   top: 10px;
   right: 15px;
   cursor: pointer;
-  font-size: 20px; /* Larger close icon */
+  font-size: 20px; 
   color: #888;
 }
 .close-btn:hover {
@@ -462,28 +462,28 @@ body.dark-mode .close-btn:hover {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(3px); /* Added blur effect */
+  backdrop-filter: blur(3px); 
   z-index: 999;
   display: none;
 }
 body.dark-mode .widget {
-  background: #3a3a3a; /* Darker widget bg */
+  background: #3a3a3a; 
   color: #ddd;
 }
 
-/* Settings Widget Specific Styles */
+
 #settings-widget h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 #settings-widget h3 {
-  margin-top: 20px; /* More space for section titles */
+  margin-top: 20px; 
   margin-bottom: 10px;
-  font-size: 1em; /* Slightly smaller */
+  font-size: 1em; 
   color: #0288d1; 
   border-bottom: 1px solid #e0e0e0;
   padding-bottom: 6px;
-  font-weight: 600; /* Bolder titles */
+  font-weight: 600; 
 }
 body.dark-mode #settings-widget h3 {
   color: #4fc3f7;
@@ -496,15 +496,15 @@ body.dark-mode #settings-widget h3 {
   display: block;
   margin-bottom: 6px;
   font-size: 0.9em;
-  font-weight: 500; /* Slightly bolder labels */
+  font-weight: 500; 
 }
 #settings-widget input[type="number"],
 #settings-widget input[type="text"],
 #settings-widget select {
-  width: calc(100% - 22px); /* Full width minus padding */
-  padding: 10px; /* Increased padding */
-  margin-bottom: 12px; /* More space below inputs */
-  border-radius: 5px; /* Slightly more rounded */
+  width: calc(100% - 22px); 
+  padding: 10px; 
+  margin-bottom: 12px; 
+  border-radius: 5px; 
   border: 1px solid #ccc;
   background-color: #fff;
   color: #333;
@@ -518,30 +518,30 @@ body.dark-mode #settings-widget select {
   border-color: #666;
 }
 #settings-widget input[type="checkbox"] {
-  margin-right: 8px; /* More space for checkbox */
+  margin-right: 8px; 
   vertical-align: middle;
-  width: auto; /* Override width calc */
-  margin-bottom: 0; /* Align with label */
+  width: auto; 
+  margin-bottom: 0; 
 }
 #settings-widget label.checkbox-label { 
-    display: inline; /* Align label with checkbox */
-    font-weight: normal; /* Normal weight for checkbox label */
+    display: inline; 
+    font-weight: normal; 
     font-size: 0.9em;
 }
 #settings-widget #saveSettingsBtn,
 #settings-widget .close-widget-btn {
-    padding: 10px 18px; /* Standardized padding */
+    padding: 10px 18px; 
     font-size: 0.95em;
 }
 #settings-widget #saveSettingsBtn {
     margin-right: 10px;
-    background-color: #4CAF50; /* Explicit save color */
+    background-color: #4CAF50; 
 }
 #settings-widget #saveSettingsBtn:hover {
     background-color: #45a049;
 }
 #settings-widget .close-widget-btn {
-    background-color: #757575; /* Grey for close */
+    background-color: #757575; 
 }
 #settings-widget .close-widget-btn:hover {
     background-color: #616161;
@@ -551,7 +551,7 @@ body.dark-mode #settings-widget select {
 #tasks-completed {
   font-size: 24px;
   font-weight: bold;
-  color: #4CAF50; /* Highlight color */
+  color: #4CAF50; 
 }
 body.dark-mode #tasks-completed {
     color: #81c784;
@@ -575,9 +575,9 @@ body.dark-mode #notifications-list li {
 }
 
 
-/* Grid layout for overview content on larger screens */
+
 @media (min-width: 768px) {
-  .overview-content > div { /* Target the div wrapping weather, inspiration etc. */
+  .overview-content > div {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
@@ -586,6 +586,7 @@ body.dark-mode #notifications-list li {
   .overview-content .inspiration, 
   .overview-content .tasks, 
   .overview-content .Assignment {
-    margin-bottom: 0; /* Remove bottom margin as gap handles it */
+    margin-bottom: 0; 
   }
+
 }
