@@ -1,21 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Check for dark mode preference
+
   if (localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark-mode');
   }
 
-  // Retrieve assignments from localStorage
   let assignments = JSON.parse(localStorage.getItem('events')) || [];
 
-  // DOM elements
+
   const assignmentNameInput = document.getElementById('assignmentName');
   const assignmentDateInput = document.getElementById('assignmentDate');
   const assignmentDescriptionInput = document.getElementById('assignmentDescription');
   const addAssignmentBtn = document.getElementById('addAssignmentBtn');
   const assignmentList = document.getElementById('assignmentList');
   const noAssignmentsMessage = document.getElementById('noAssignments');
-  
-  // *** FIX: Ensure error message elements are selected ***
+
   const assignmentNameError = document.getElementById('assignmentNameError');
   const assignmentDateError = document.getElementById('assignmentDateError');
   const assignmentDescriptionError = document.getElementById('assignmentDescriptionError');
@@ -23,19 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const backBtn = document.getElementById('backBtn');
 
 
-  // Function to display "No assignments" message
   function displayNoAssignmentsMessage() {
     if (noAssignmentsMessage) {
         noAssignmentsMessage.style.display = assignments.length === 0 ? 'block' : 'none';
     }
   }
 
-  // Render assignments in the list
+
   function renderAssignments() {
     if (!assignmentList) return; 
 
     assignmentList.innerHTML = '';
-    // Sort assignments by date before rendering
+
     assignments.sort((a, b) => new Date(a.date) - new Date(b.date)); 
     
     assignments.forEach((assignment, index) => {
@@ -66,15 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
     displayNoAssignmentsMessage(); 
   }
 
-  // Validate form inputs (using the original simpler logic from your HTML,
-  // which is fine now that error elements are defined)
+
   function validateForm() {
     let isValid = true;
 
-    // Validate Assignment Name
     if (!assignmentNameInput || !assignmentNameError) {
         console.error("Assignment name input or error display element is missing.");
-        return false; // Critical elements missing
+        return false; 
     }
     if (!assignmentNameInput.value.trim()) {
       assignmentNameError.style.display = 'block';
@@ -83,10 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
       assignmentNameError.style.display = 'none';
     }
 
-    // Validate Assignment Date
+
     if (!assignmentDateInput || !assignmentDateError) {
         console.error("Assignment date input or error display element is missing.");
-        return false; // Critical elements missing
+        return false;
     }
     if (!assignmentDateInput.value) {
       assignmentDateError.style.display = 'block';
@@ -95,10 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
       assignmentDateError.style.display = 'none';
     }
 
-    // Validate Assignment Description
+
     if (!assignmentDescriptionInput || !assignmentDescriptionError) {
         console.error("Assignment description input or error display element is missing.");
-        return false; // Critical elements missing
+        return false; 
     }
     if (!assignmentDescriptionInput.value.trim()) {
       assignmentDescriptionError.style.display = 'block';
@@ -110,13 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return isValid;
   }
 
-  // Add a new assignment
+
   if (addAssignmentBtn) {
     addAssignmentBtn.addEventListener('click', () => {
-      // Ensure input elements exist before trying to access their 'value' property
+
       if (!assignmentNameInput || !assignmentDateInput || !assignmentDescriptionInput) {
           console.error("One or more input fields are missing from the DOM.");
-          return; // Exit if critical input elements are not found
+          return;
       }
 
       const name = assignmentNameInput.value.trim();
@@ -138,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error("Add Assignment button not found.");
   }
 
-  // Back button returns to the home page
   if (backBtn) {
     backBtn.addEventListener('click', () => {
       window.location.href = 'index.html';
@@ -147,6 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error("Back button not found.");
   }
 
-  // Initial render of assignments on page load
   renderAssignments();
+
 });
