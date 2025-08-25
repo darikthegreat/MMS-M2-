@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // --- Essential DOM Elements ---
+  
   const body = document.body;
   const timerDisplay = document.getElementById('timer');
   const logoEl = document.querySelector('.logo');
   const homePageQuoteEl = document.getElementById('homePageQuote');
 
 
-  // --- Settings Widget Elements ---
+  
   const themeSelect = document.getElementById('theme-select');
   const workTimeInput = document.getElementById('work-time');
   const breakTimeInput = document.getElementById('break-time');
@@ -14,36 +14,35 @@ document.addEventListener('DOMContentLoaded', function() {
   const weatherLocationInput = document.getElementById('weather-location');
   const homeTaskDisplaySelect = document.getElementById('home-task-display');
 
-  // --- Home Page Display Elements ---
+  
   const tasksDisplayEl = document.getElementById('tasksDisplay');
   const homeTasksCountEl = document.getElementById('homeTasksCount');
   const homeAssignmentListEl = document.getElementById('assignmentList');
   const homeAssignmentsCountEl = document.getElementById('homeAssignmentsCount');
   const homeScheduleGrid = document.getElementById('homeScheduleGrid');
 
-  // --- Overview Modal Elements ---
+ 
   const overviewDetails = document.getElementById('overview-details');
   const showOverviewBtn = document.getElementById('showOverviewBtn');
   const hideOverviewBtn = document.getElementById('hideOverviewBtn');
   const currentDateEl = document.getElementById('current-date');
   const weatherDescriptionEl = document.getElementById('weatherDescription');
-  const dailyQuoteEl = document.getElementById('dailyQuote'); // For overview modal
+  const dailyQuoteEl = document.getElementById('dailyQuote'); 
   const todayTasksListEl = document.getElementById('todayTasksList');
   const todayAssignmentListEl = document.getElementById('todayAssignmentList');
 
-  // --- Other Widget Elements ---
+  
   const widgetOverlay = document.getElementById('widget-overlay');
   const tasksCompletedEl = document.getElementById('tasks-completed');
   const notificationsListEl = document.getElementById('notifications-list');
 
 
-  // --- Global State Variables ---
+ 
   let workTime = parseInt(localStorage.getItem('pomodoroWorkTime')) || 25;
   let totalTime = workTime * 60;
   let timeLeft = totalTime;
   let timerId = null;
 
-  // --- Initial Theme Application ---
   function applyInitialTheme() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -52,10 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (savedTheme === 'light') {
       body.classList.remove('dark-mode');
       if(themeSelect) themeSelect.value = 'light';
-    } else { // No 'theme' set, check old 'darkMode' or default to light
+    } else { 
       if (localStorage.getItem('darkMode') === 'enabled') {
         body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark'); // Migrate old setting
+        localStorage.setItem('theme', 'dark'); 
         if(themeSelect) themeSelect.value = 'dark';
       } else {
         body.classList.remove('dark-mode');
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // --- Dark Mode Toggle Function ---
+
   const darkModeToggle = document.querySelector('.dark-mode-toggle');
   function toggleDarkMode() {
     body.classList.toggle('dark-mode');
@@ -76,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   if (darkModeToggle) darkModeToggle.addEventListener('click', toggleDarkMode);
 
-  // --- Timer Functionality ---
   function updateDisplay() {
     if (!timerDisplay) return;
     const minutes = Math.floor(timeLeft / 60);
@@ -96,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (localStorage.getItem('pomodoroAlerts') !== 'false') {
             alert('Time’s up!');
           }
-          timeLeft = totalTime; // Reset to work time for now
+          timeLeft = totalTime;
           updateDisplay();
         }
       }, 1000);
@@ -115,13 +113,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (event) event.stopPropagation();
     clearInterval(timerId);
     timerId = null;
-    workTime = parseInt(localStorage.getItem('pomodoroWorkTime')) || 25; // Re-fetch in case changed
+    workTime = parseInt(localStorage.getItem('pomodoroWorkTime')) || 25; 
     totalTime = workTime * 60;
     timeLeft = totalTime;
     updateDisplay();
   }
 
-  // --- Navigation Functions ---
+
   function navigateToPage(url) {
     body.classList.add('fade-out');
     setTimeout(() => window.location.href = url, 500);
@@ -130,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const pomodoroDiv = document.querySelector('.pomodoro');
   if (pomodoroDiv) {
       pomodoroDiv.addEventListener('click', (e) => {
-          // Only navigate if not clicking on a button inside .controls
+
           if (!e.target.closest('.controls')) {
             navigateToPage('pomodoro.html');
           }
@@ -173,8 +171,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Logout Function ---
   const logoutIcon = document.querySelector('.logout-icon');
   function logout() {
-    localStorage.removeItem('currentUser'); // Example: clear user session
-    navigateToPage('login.html'); // Redirect to login page
+    localStorage.removeItem('currentUser');
+    navigateToPage('login.html'); 
   }
   if (logoutIcon) logoutIcon.addEventListener('click', logout);
 
@@ -467,5 +465,6 @@ document.addEventListener('DOMContentLoaded', function() {
   renderAssignmentsOnHomePage();
   renderHomeSchedule();
   fetchHomePageQuote(); // Fetch a quote for the home page inspiration block
+
 
 });
