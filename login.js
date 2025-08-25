@@ -12,21 +12,23 @@ function togglePassword(id) {
     }
 }
 
-document.getElementById('loginForm').addEventListener('submit', function(e) {
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const emailOrUsername = document.getElementById('loginEmail').value;
+    const email = document.getElementById('loginEmail').value; // Assuming you change this field to just email
     const password = document.getElementById('loginPassword').value;
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(user =>
-        (user.email === emailOrUsername || user.username === emailOrUsername) &&
-        user.password === password
-    );
-    if (user) {
+    const errorDiv = document.getElementById('loginError');
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+    });
+
+    if (error) {
+        errorDiv.textContent = error.message;
+    } else {
+        // Supabase automatically handles the session (using cookies)
         alert('Login successful!');
-        localStorage.setItem('currentUser', JSON.stringify(user));
         document.body.classList.add('fade-out');
         setTimeout(() => window.location.href = 'index.html', 500);
-    } else {
-        document.getElementById('loginError').textContent = 'Invalid credentials. Please try again.';
     }
 });
