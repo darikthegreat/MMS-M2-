@@ -1,4 +1,4 @@
-// In file: /api/signup.js
+
 import { createClient } from '@supabase/supabase-js';
 
 // Initialize Supabase on the backend
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     password: password,
     options: {
       data: {
-        // You can store non-sensitive metadata like username here
+        
         username: username,
       }
     }
